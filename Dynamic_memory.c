@@ -55,3 +55,11 @@ for ( int i = 0 ; i < n+3 ; i ++ )
 // It might still show values of old values stored in A but it is free to store any new values in place of it
     
 }
+
+//------------------------------------------------------- OUTPUT----------------------------------------------------------------------
+Enter  size of array: 5
+Default or garbage values of Malloc in A: 420832176  634  420806992  634  997421168 
+Default values of Calloc in B: 0  0  0  0  0 
+Prev block address  420812848 , new address =  420812848 
+ 
+Values After putting values in A after using realloc too: 1  2  3  4  5  60  20  40 
