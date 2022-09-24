@@ -22,10 +22,12 @@ typedef vector<cd> vcd;
 template<class T> using pq = priority_queue<T>;
 template<class T> using pqg = priority_queue<T, vector<T>, greater<T>>;
  
-#define FOR(i, a, b) for (int i=a; i<=(b); i++)
-#define F0R(i, a) for (int i=0; i<(a); i++)
-#define FORd(i,a,b) for (int i = (b)-1; i >= a; i--)
-#define F0Rd(i,a) for (int i = (a)-1; i >= 0; i--)
+
+#define loop(i, a, b) for (int i=a; i<=(b); i++)
+#define lop(i, a) for (int i=0; i<(a); i++)
+
+#define loopd(i,a,b) for (int i = (b)-1; i >= a; i--)
+#define lopd(i,a) for (int i = (a)-1; i >= 0; i--)
 #define trav(a,x) for (auto& a : x)
 #define uid(a, b) uniform_int_distribution<int>(a, b)(rng)
  
@@ -77,7 +79,6 @@ const int MX = 100001;
 
 
 void solve(){
-    
 cout<<"code here :)"<<nl;
 
 }
