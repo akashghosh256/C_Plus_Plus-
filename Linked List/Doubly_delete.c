@@ -42,22 +42,30 @@ void deletefrom_end(){
 }
 
 void deletefrom_pos(){
+
      if(head == 0){
         printf("List is already empty\n");
     }
     else{
-    int pos,count =0;
-    printf("Enter pos for delete");
+    int pos;
+    printf("Enter pos for deletion : ");
     scanf("%d",&pos);
-    if(pos == 1) deletefrom_beg;
-    else if(pos == count) deletefrom_end;
+    if(pos == 1)
+    {
+         deletefrom_beg();
+    }
+    else if(pos == count) 
+    {
+        deletefrom_end();
+    }
     else{
     struct Node *temp;
-    temp =head;
-    int count = 1;
+    temp = head;
+    int ct = 1;
 
-    while(count < pos ){
+    while(ct < pos ){
         temp = temp -> next;
+        ct++;
     }
 
     temp -> prev -> next = temp -> next;
@@ -66,6 +74,7 @@ void deletefrom_pos(){
     count--;
     printf("Deleted from pos\n");
 }
+
 }
 }
 
