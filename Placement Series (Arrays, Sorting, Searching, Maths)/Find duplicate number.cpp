@@ -35,6 +35,8 @@ class Solution {
             
         } while( slow != fast);
         
+             
+         // Now this will help us to know the entry point of the cycle,this where we will find the duplicate element
         fast = nums[0];
         while( slow != fast){
             slow = nums[slow];
