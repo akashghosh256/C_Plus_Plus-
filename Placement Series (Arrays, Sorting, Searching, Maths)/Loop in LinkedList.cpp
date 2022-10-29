@@ -101,12 +101,14 @@ struct Node{
 
 };
 
-void printlist(struct Node *node)
-{  
-  while (node != NULL)
+void printlist(struct Node **head)
+{  struct Node *temp = *head;
+
+
+  while (temp != NULL)
   {
-     printf(" %d ", node->data);
-     node = node->next;
+     printf(" %d ", temp->data);
+     temp = temp->next;
   }
 
 }
@@ -151,7 +153,7 @@ push(&head, 50);
 /* Create a loop for testing */
 head->next->next->next->next = head;
 
-//printlist(head);
+//printlist(&head);
 
 if(detectloop(head))
 cout<<"Loop found";
