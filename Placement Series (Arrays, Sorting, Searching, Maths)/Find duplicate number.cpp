@@ -22,7 +22,7 @@ int n =  Integer.parseInt(f.readLine());
        } 
        out.println(p);
 
-//Optimal soln- Linked list - Tortoise Method
+//Optimal soln- Linked list(No need to create LL just for thinking, here aray will workout)  - Tortoise Method/Fast & slow pointer method
 
 class Solution {
     public int findDuplicate(int[] nums) {
