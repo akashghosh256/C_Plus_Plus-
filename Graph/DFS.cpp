@@ -15,7 +15,7 @@ public:
     map<int, list<int> > adj;
     // function to add an edge to graph
     void addEdge(int v, int w);
-
+    void print_map();
     // prints DFS traversal of the complete graph
     void DFS();
 };
@@ -25,6 +25,16 @@ void Graph::addEdge(int v, int w)
     adj[v].push_back(w); // Add w to v’s list.
 }
 
+
+void print_map(map<int, list<int> > adj){
+    cout << "Map: " << endl;
+    for (auto itr : adj){
+        cout << itr.first << ":\t";
+        for (auto innerItr : itr.second)
+            cout << innerItr << " ";
+        cout << endl;
+    }
+}
 void Graph::DFSUtil(int v)
 {
     // Mark the current node as visited and print it
@@ -33,14 +43,15 @@ void Graph::DFSUtil(int v)
 
 
     // Recur for all the vertices adjacent to this vertex
-    list<int>::iterator i;
+    list<int>::iterator i;  //auto i
     for (i = adj[v].begin(); i != adj[v].end(); ++i){
-        auto b = i;
-        cout<<nl<<"Now: "<<endl;
+       
+        cout<<nl<<"checking: "<<endl;
         if (!visited[*i]){
-            cout<<"call again: "<<visited[*i]<<endl;
+            cout<<"call again DFSUtil: "<<visited[*i]<<endl;
             DFSUtil(*i);
         }
+        else cout<<"skip/over"<<nl;
     }
 }
 
@@ -69,10 +80,16 @@ int main()
     g.addEdge(2, 3);
     g.addEdge(9, 3);
 
-    cout << "Following is Depth First Traversal \n";
+
+
+
     
+    print_map(g.adj);
     // Function call
+    
+    cout << "Following is Depth First Traversal \n";
     g.DFS();
+    
 
     return 0;
 }
