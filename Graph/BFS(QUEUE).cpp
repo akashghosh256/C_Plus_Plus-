@@ -27,7 +27,7 @@ void print_Edge(vector<int> adj[])
 void BFS(int v1, vector<int> adj[], vector<bool> &Visited)
 {   cout<<"BFS called for: "<<v1<<endl;
     /* Initialize a queue for keeping track of upcoming vertices */
-    list<int> queue_of_vertices;
+    list<int> queue_of_vertices;    // or use Queue<int> q;
  
     /* Mark the current vertex visited and pushed to the queue*/
     Visited[v1] = true;
