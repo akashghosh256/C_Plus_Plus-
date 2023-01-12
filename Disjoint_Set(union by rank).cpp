@@ -1,3 +1,5 @@
+//                                  using union by rank
+
 #include <bits/stdc++.h>
 using namespace std;
 class DisjointSet {
