@@ -9,6 +9,10 @@ if so it removes the key-node pair from the unordered_map and the node from the 
   from the unordered_map and the node from the doubly linked list. Then it adds the new node to the front of 
   the doubly linked list and adds the key-node pair to the unordered_map. Overall, this class implements an 
     LRU cache data structure that takes O(1) time for get and put operations.
+   
+    
+    TC : O(1) 
+    SC: O(N) N = number of key value pairs in map
   
 
 class LRUCache {
@@ -88,4 +92,54 @@ public:
         m[key_] = head->next; // Add the key-node pair to the map
     }
 };
+
+
+The time complexity of the above code is as follows:
+
+The get method has an average time complexity of O(1), since it performs a single lookup in the unordered_map, 
+which has an average time complexity of O(1) due to the use of a hash table.
+The put method has an average time complexity of O(1) as well. The method performs a single lookup in 
+the unordered_map using the find() method, which has an average time complexity of O(1) due to the use of a hash table. 
+  If the key already exists in the cache, it performs a single erase operation, which also has an average time complexity of O(1) due 
+  to the use of a hash table. If the cache is at capacity, it performs a single erase operation on the least recently used key-node pair 
+  from the unordered_map, which again has an average time complexity of O(1) due to the use of a hash table. Finally, it performs a single 
+  insert operation on the unordered_map, which has an average time complexity of O(1) due to the use of a hash table.
+It's worth noting that the above mentioned time complexity is average time complexity, it is possible that in worst case 
+  scenario the time complexity might increase, but it's highly unlikely that it will happen frequently.
+
+
+
+space complexity :
+The space complexity of the above code is O(n), where n is the number of key-value pairs stored in the cache. 
+  This is because the space complexity is determined by the number of elements stored in the unordered_map and 
+  the doubly linked list. The unordered_map stores n key-node pairs, where each pair takes up a constant amount of space. 
+  The doubly linked list stores n nodes, where each node takes up a constant amount of space. Therefore, the total space complexity is O(n).
+
+It's also worth noting that the space complexity of the LRU cache is determined by the capacity of the cache and not the number of 
+  items in the cache, so if the capacity is set to a fixed value, the space complexity will be O(C) where C is the capacity of the cache,
+regardless of the number of items it contains.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
