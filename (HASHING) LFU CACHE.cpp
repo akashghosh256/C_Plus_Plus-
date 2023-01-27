@@ -1,3 +1,7 @@
+        LEAST FREQUENTLY USED CACHE
+https://leetcode.com/problems/lfu-cache/description/
+
+
 struct Node {
     int key, value, cnt;
     Node *next; 
