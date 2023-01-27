@@ -3,6 +3,9 @@ using namespace std;
 // print counting using recursion---------------1 2 3 4 5...
 
 // code to print in ascending order
+
+
+// This is backtracking 
 void count1(int n){
     if(n==0)
     return;
