@@ -4,11 +4,7 @@ using namespace std;
                     
 
 
-//----------------------Hashmap + Backtrack Method (Best)----------------------
-
-#include <bits/stdc++.h>
-
-using namespace std;
+//----------------------Hashmap + Backtrack Method (Best)----------------------------
 class Solution {
   public:
     void solve(int col, vector < string > & board, vector < vector < string >> & ans, vector < int > & leftrow, vector < int > & upperDiagonal, vector < int > & lowerDiagonal, int n) {
