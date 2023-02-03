@@ -79,3 +79,9 @@ int main() {
   cout << graphColoring(graph, m, N);
 
 }
+
+// Output ( 1 FOR POSSIBLE AND 0 FOR NOT POSSIBLE)
+// 1
+// Time Complexity: O( N^M) (n raised to m)
+
+// Space Complexity: O(N)
