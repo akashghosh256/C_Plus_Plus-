@@ -7,7 +7,7 @@ bool isSafe(int node, int color[], bool graph[101][101], int n, int col) {
   // Loop through all nodes connected to the current node
   for (int k = 0; k < n; k++) {
     // If the node is connected and has the same color, return false
-    if (k != node && graph[k][node] == 1 && color[k] == col) {
+    if (k != node && graph[k][node] == 1 && color[k] == col) {   // k != node is to avoid bidirectional error
       return false;
     }
   }
