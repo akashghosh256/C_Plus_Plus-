@@ -101,3 +101,9 @@ int main() {
 // 8 4 5 7 9 2 6 1 3 
 // 2 9 1 4 3 6 8 7 5 
 // 7 3 6 1 8 5 4 2 9 
+
+// Time Complexity: O(9(n ^ 2)), in the worst case, for each cell 
+// in the n2 board, we have 9 possible numbers.
+
+// Space Complexity: O(1), since we are refilling the given board 
+// itself, there is no extra space required, so constant space complexity.
