@@ -1,5 +1,20 @@
+https://practice.geeksforgeeks.org/problems/flattening-a-linked-list/1
+/* Node structure  used in the program
 
+struct Node{
+	int data;
+	struct Node * next;
+	struct Node * bottom;
+	
+	Node(int x){
+	    data = x;
+	    next = NULL;
+	    bottom = NULL;
+	}
+	
 
+};
+*/
 Node *mergeTwoLists(Node *a,Node *b){
     // Create a new node with a dummy value as the starting point for the result linked list
     Node *temp = new Node(0); 
@@ -11,9 +26,28 @@ Node *mergeTwoLists(Node *a,Node *b){
         // Compare the data values of the current nodes in both linked lists
         if(a->data < b-> data){
         // Add the node from linked list 'a' to the result linked list
-        temp->bottom = a;
-        temp = temp -> bottom;
-        a= a -> bottom;
+
+        temp->bottom = a;   
+        temp = temp -> bottom; 
+        a= a -> bottom; 
+        /*
+        The line temp->bottom = a; 
+        sets the bottom pointer of the current node in the result linked list 
+        (pointed to by temp) to the current node in linked list 'a' (pointed to by a).
+        This adds the node from linked list 'a' to the result linked list. 
+        After this line is executed, the temp pointer is updated to point to the 
+        node that was just added to the result linked list, so that the next node 
+        can be added to it in the next iteration of the loop.
+
+        The line temp = temp -> bottom; 
+        updates the temp pointer to point to the node
+        that was just added to the result linked list in the previous step. 
+        This allows the next node to be added to the result linked list in the next iteration of the loop.
+
+        The line a= a -> bottom; 
+        updates the a pointer to point to the next node in linked list 'a'. 
+        This allows the next node in linked list 'a' to be processed in the next iteration of the loop.
+        */
         }
         
         // If the node from linked list 'b' is smaller, add it to the result linked list instead
@@ -48,8 +82,8 @@ Node *flatten(Node *root)
        return root;
    }
    
-   // Recursively flatten the next node
-   root->next = flatten(root->next);
+   // Recursively flatten the next list in right
+   root->next = flatten(root->next);   // we have converted the given function to a recursive function
    // Merge the current node and the flattened next node
    root= mergeTwoLists(root,root->next);
    
