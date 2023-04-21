@@ -1,59 +1,64 @@
-#include <bits/stdc++.h> 
-/************************************************************
+#include <bits/stdc++.h>
 
-    Following is the TreeNode class structure:
+using namespace std;
 
-    template <typename T>
-    class TreeNode {
-       public:
-        T val;
-        TreeNode<T> *left;
-        TreeNode<T> *right;
+struct node {
+  int data;
+  struct node * left, * right;
+};
 
-        TreeNode(T val) {
-            this->val = val;
-            left = NULL;
-            right = NULL;
-        }
-    };
+vector < int > preorderTraversal(node * root) {
+  vector < int > preorder;
 
-************************************************************/
+  node * cur = root;
+  while (cur != NULL) {
+    if (cur -> left == NULL) {
+      preorder.push_back(cur -> data);
+      cur = cur -> right;
+    } else {
+      node * prev = cur -> left;
+      while (prev -> right != NULL && prev -> right != cur) {
+        prev = prev -> right;
+      }
 
-vector<int> getTopView(TreeNode<int> *root) {
-    // Write your code here.
-
-    vector<int> ans;
-    if(root == NULL) return ans;
-
-    map<int,int> mpp;
-    queue<pair<TreeNode<int> *, int>>q;
-    q.push({root, 0});
-
-    while(!q.empty()){
-        auto it = q.front();
-        q.pop();
-        TreeNode<int> * node =it.first;
-        int line = it.second;
-
-        if(mpp.find(line) == mpp.end()) mpp[line] = node -> val;
-
-        if(node -> left != NULL){
-            q.push({node->left, line -1});
-        }
-
-          if(node -> right != NULL){
-            q.push({node->right, line +1});
-        }
-        
+      if (prev -> right == NULL) {
+        prev -> right = cur;
+        preorder.push_back(cur -> data);
+        cur = cur -> left;
+      } else {
+        prev -> right = NULL;
+        cur = cur -> right;
+      }
     }
-
-    for(auto it : mpp){
-        ans.push_back(it.second);
-    }
-
-
-return ans;
-
+  }
+  return preorder;
 }
 
+struct node * newNode(int data) {
+  struct node * node = (struct node * ) malloc(sizeof(struct node));
+  node -> data = data;
+  node -> left = NULL;
+  node -> right = NULL;
 
+  return (node);
+}
+
+int main() {
+
+  struct node * root = newNode(1);
+  root -> left = newNode(2);
+  root -> right = newNode(3);
+  root -> left -> left = newNode(4);
+  root -> left -> right = newNode(5);
+  root -> left -> right -> right = newNode(6);
+
+  vector < int > preorder;
+  preorder = preorderTraversal(root);
+
+  cout << "The Preorder Traversal is: ";
+  for (int i = 0; i < preorder.size(); i++) {
+    cout << preorder[i] << " ";
+  }
+
+  return 0;
+}
